@@ -1,2 +1,1 @@
-# SQL
-SQL Portfolio
+Hello, and welcome to my SQL Portfolio! Offered within this code repository are examples of SQL I've written. Feel free to look at all the files offered and reach out via email with any questions you may have: delossantosnoelm@gmail.com
