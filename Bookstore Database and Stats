@@ -1,18 +1,31 @@
-CREATE TABLE bookstore (id INTEGER PRIMARY KEY, books TEXT, author TEXT, rating INTEGER, price INTEGER);
-INSERT INTO bookstore VALUES (1, "ALL THE BRIGHT PLACES", "JENNIFER NIVEN", 5, 19.99);
-INSERT INTO bookstore VALUES (2, "The Fault in Our Stars", "John Green", 4.5, 15.99);
-INSERT INTO bookstore VALUES (3, "Pride and Prejudice", "Jane Austin", 3.5, 15.00);
-INSERT INTO bookstore VALUES (4, "A Court of Thorns and Roses", "Sara J. Maas", 5, 20.99);
-INSERT INTO bookstore VALUES (5, "Glory O'Brian's History of the Future", "Unknown", 4.5, 16.99);
-INSERT INTO bookstore VALUES (6, "Looking for Alaska", "John Green", 5, 17.99);
-INSERT INTO bookstore VALUES (7, "I Had a Dream That You Were Mine", "Miranda DLS", 5, 22.00);
-INSERT INTO bookstore VALUES (8, "I've Had That Dream A Thousand Times", "Times", 3.5, 17.50);
-INSERT INTO bookstore VALUES (9, "A Thousand Times", "Johnny Cash", 2.5, 12.99);
-INSERT INTO bookstore VALUES (10, "I Left My Room", "Westside", 4.5, 15.99);
-INSERT INTO bookstore VALUES (11, "I Walked From Noon", "Night", 2.7, 10.00);
-INSERT INTO bookstore VALUES (12, "Found Your Old House", "Didn't Even Try", 3.5, 17.99);
-INSERT INTO bookstore VALUES (13, "I Closed the Shutters", "Pulled the Blinds", 4.5, 18.99);
-INSERT INTO bookstore VALUES (14, "The Tenth of November", "Year's Almost", 5, 21.99);
-INSERT INTO bookstore VALUES (15, "If I Had Your Number", "Call You Tomorrow", 4.5, 25.99);
-SELECT * FROM bookstore ORDER BY price > 15.99;
-SELECT Sum(price) FROM bookstore;
+--Create a book store database
+
+CREATE TABLE Book_Store (id INTEGER PRIMARY KEY, Title TEXT, Author TEXT, Format TEXT, Rating INTEGER, Price INTEGER);
+
+INSERT INTO Book_Store VALUES (1,"The Hurricane Wars", "Thea Guanzon", "Hardcover", 5, 30.00);
+INSERT INTO Book_Store VALUES (2, "Iron Flame", "Rebecca Yarros", "Hardcover", 5, 26.39);
+INSERT INTO Book_Store VALUES (3, "Fourth Wing", "Rebecca Yarros", "Hardcover", 5, 26.99);
+INSERT INTO Book_Store VALUES (4, "Someone You Know", "Erin Kinsley", "eBook", 0, 0.99);
+INSERT INTO Book_Store VALUES (5, "The Shadow of Perseus: A Novel", "Claire Heywood", "Hardcover", 4.5, 14.00);
+INSERT INTO Book_Store VALUES (6, "The Magician's Assistant", "Ann Patchett", "Paperback", 3.5, 16.00);
+INSERT INTO Book_Store VALUES (7, "Ruthless Vows (B&N Exclusive Edition)", "Rebecca Ross", "Hardcover", 0, 18.00);
+INSERT INTO Book_Store VALUES (8, "The Secrets of Hartwood Hall", "Katie Lumsden", "Hardcover", 4.5, 13.50);
+INSERT INTO Book_Store VALUES (9, "The Breach", "Patrick Lee", "Paperback", 4, 7.99);
+INSERT INTO Book_Store VALUES (10, "The Daughter's of Madurai (Barnes & Noble Book Club Edition)", "Rajasree Variyar", "Hardcover", 5, 13.99);
+INSERT INTO Book_Store VALUES (11, "Masters of Death (B&N Exclusive Edition)", "Olivie Blake", "Hardcover", 4.5, 20.99);
+INSERT INTO Book_Store VALUES (12, "The God of Endings: A Noel", "Jacqueline Holland", "Hardcover", 4.5, 14.99);
+INSERT INTO Book_Store VALUES (13, "Cheers to the Duke", "Sally Mackenzie", "Paperback", 4, 8.99);
+INSERT INTO Book_Store VALUES (14, "Fairy Tale", "Stephan king", "Paperback", 4.5, 18.00);
+INSERT INTO Book_Store VALUES (15, "Out of Nowhere", "Sandra Brown", "Hardcover", 4.5, 21.00);
+
+--Display the database ordered by price.
+SELECT * FROM Book_Store ORDER BY Price;
+
+--Display books with hardcover format ordered by price.
+SELECT * FROM Book_Store WHERE Format = "Hardcover" GROUP BY Price;
+
+--What is the average price of hardcover books.
+SELECT AVG(Price) FROM Book_Store WHERE Format = "Hardcover";
+
+--WHat is the total price of books written by Rebecca Yarros.
+SELECT SUM(Price) FROM Book_Store WHERE Author = "Rebecca Yarros";
